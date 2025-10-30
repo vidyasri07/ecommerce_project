@@ -50,7 +50,7 @@
                 <th class="text-center">Quantity</th>
                 <th class="text-end">Price</th>
                 <th class="text-end">Subtotal</th>
-                <th class="text-center">Action</th>
+                <th class="text-end">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -59,7 +59,7 @@
                 <td class="px-4">
                     <div class="d-flex align-items-center">
                         {% if item.product.image %}
-                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="cart-thumb">
+                        <img src="{{ item.product.image }}" alt="{{ item.product.name }}" class="cart-thumb">
                         {% else %}
                         <div class="cart-thumb bg-light d-flex align-items-center justify-content-center text-muted">No Image</div>
                         {% endif %}
@@ -83,6 +83,7 @@
                 <td class="text-end">${{ item.product.price|floatformat:2 }}</td>
                 <td class="text-end fw-semibold">${{ item.subtotal|floatformat:2 }}</td>
                 <td class="text-end"></td>
+                <td class="text-firght">
                 <a href="{% url 'cart:remove_from_cart' item.id %}" class="btn btn-outline-danger btn-sm">Remove</a>
                 </td>
             </tr>

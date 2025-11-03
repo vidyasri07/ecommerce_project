@@ -64,9 +64,10 @@ def register_view(request):
             otp_expiry = timezone.now()+timedelta(minutes=3)
             OTP.objects.create(user=user, code=otp_code, expires_at = otp_expiry)
             request.session['email'] = user.email
-
+            print("otp generated.. preparing to send otp to email")
             #pending task is to send an email to the user email account
             send_otp_email(user.email, otp_code)
+            print("finishes")
             
 
 
